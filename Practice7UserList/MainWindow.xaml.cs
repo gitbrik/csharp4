@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
 using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.DataStorage;
 using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers;
@@ -28,6 +29,12 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList
             StationManager.Initialize(new SerializedDataStorage());
             NavigationManager.Instance.Initialize(new InitializationNavigationModel(this));
             NavigationManager.Instance.Navigate(ViewType.SignIn);
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            StationManager.CloseApp();
         }
     }
 }

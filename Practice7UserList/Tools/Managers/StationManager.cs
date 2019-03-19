@@ -7,6 +7,8 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers
 {
     internal static class StationManager
     {
+        public static event Action StopThreads;
+
         private static IDataStorage _dataStorage;
 
         internal static User CurrentUser { get; set; }
@@ -24,6 +26,7 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers
         internal static void CloseApp()
         {
             MessageBox.Show("ShutDown");
+            StopThreads?.Invoke();
             Environment.Exit(1);
         }
     }
