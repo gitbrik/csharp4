@@ -5,11 +5,8 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.DataStorage
 {
     internal interface IDataStorage
     {
-        bool UserExists(string login);
-
-        User GetUserByLogin(string login);
-
+        void SaveChanges();
         void AddUser(User user);
-        List<User> UsersList { get; }
+        List<User> UsersList { get; set; }
     }
 }

@@ -26,26 +26,17 @@
             </Button>
             <Grid Row="1" Name="ExpandedGrid" Visibility="{Binding MenuVisibility, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
                 <StackPanel>
-                    <Button Command="{Binding LogOutCommand}">
+                    <Button Command="{Binding AddUserCommand}">
                         <StackPanel>
-                        <fa:ImageAwesome Icon="SignOut" Width="30" Height="30"></fa:ImageAwesome>
-                            <TextBlock Text="Sign Out" FontWeight="Bold"></TextBlock>
+                            <fa:ImageAwesome Icon="UserPlus" Width="30" Height="30"></fa:ImageAwesome>
+                            <TextBlock Text="Add User" FontWeight="Bold"></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button Command="{Binding CloseCommand}">
-                        <StackPanel>
-                            <fa:ImageAwesome Icon="Close" Width="30" Height="30"></fa:ImageAwesome>
-                            <TextBlock Text="Close" FontWeight="Bold"></TextBlock>
-                        </StackPanel>
-                    </Button>
+                   
                 </StackPanel>
             </Grid>
         </Grid>
         <views:UserListView Grid.Column="1" Grid.Row="0" />
-        <StatusBar Grid.Row ="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Column="0"
-                   VerticalAlignment="Bottom">
-            <TextBlock Text="{Binding CurrentUser}"></TextBlock>
-        </StatusBar>
 
     </Grid>
 </UserControl>

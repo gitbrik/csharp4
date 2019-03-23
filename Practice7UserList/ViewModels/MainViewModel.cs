@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.ComponentModel;
+using System.Windows;
 using System.Windows.Input;
+using KMA.ProgrammingInCSharp2019.Practice7.UserList.Models;
 using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools;
 using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers;
 using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Navigation;
@@ -10,9 +13,7 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.ViewModels
     {
         private Visibility _menuVisibility = Visibility.Collapsed;
         private ICommand _showMenuCommand;
-        private ICommand _logOutCommand;
-        private ICommand _closeCommand;
-
+        private ICommand _addUserCommand;
         public string CurrentUser
         {
             get
@@ -35,13 +36,9 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.ViewModels
         {
             get { return _showMenuCommand ?? (_showMenuCommand = new RelayCommand<object>(ShowMenuImplementation)); }
         }
-        public ICommand LogOutCommand
+        public ICommand AddUserCommand
         {
-            get { return _logOutCommand ?? (_logOutCommand = new RelayCommand<object>(LogOutImplementation)); }
-        }
-        public ICommand CloseCommand
-        {
-            get { return _closeCommand ?? (_closeCommand = new RelayCommand<object>(CloseImplementation)); }
+            get { return _addUserCommand ?? (_addUserCommand = new RelayCommand<object>(addUserImplementation)); }
         }
 
         private void ShowMenuImplementation(object obj)
@@ -49,14 +46,11 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.ViewModels
             MenuVisibility = _menuVisibility==Visibility.Visible ? Visibility.Collapsed : Visibility.Visible;
         }
 
-        private void LogOutImplementation(object obj)
+        private void addUserImplementation(object obj)
         {
-            NavigationManager.Instance.Navigate(ViewType.SignIn);
+            NavigationManager.Instance.Navigate(ViewType.AddUser);
         }
 
-        private void CloseImplementation(object obj)
-        {
-            StationManager.CloseApp();
-        }
+        
     }
 }

@@ -1,11 +1,24 @@
 ﻿using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.DataStorage;
 
 namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers
 {
     internal static class SerializationManager
     {
+        private static SerializedDataStorage _serializedDataStorage;
+
+        internal static SerializedDataStorage SeralizationDataStorage
+        {
+            get { return  _serializedDataStorage; }
+        }
+
+        internal static void Initialize(SerializedDataStorage serializedDataStorage)
+        {
+            _serializedDataStorage = serializedDataStorage;
+        }
+
         internal static void Serialize<TObject>(TObject obj, string filePath)
         {
             try

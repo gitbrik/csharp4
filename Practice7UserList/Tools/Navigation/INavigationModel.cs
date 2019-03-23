@@ -2,8 +2,8 @@
 {
     internal enum ViewType
     {
-        SignIn,
-        SignUp,
+        AddUser,
+        DeleteUser,
         Main
     }
 

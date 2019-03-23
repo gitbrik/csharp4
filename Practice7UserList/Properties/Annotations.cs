@@ -235,7 +235,7 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Properties
   /// </code></item>
   /// <item><code>
   /// [ContractAnnotation("=&gt; true, result: notnull; =&gt; false, result: null")]
-  /// public bool TryParse(string s, out Person result)
+  /// public bool TryParse(string s, out User result)
   /// </code></item>
   /// </list></examples>
   [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]

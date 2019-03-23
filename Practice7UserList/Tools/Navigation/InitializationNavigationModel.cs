@@ -1,7 +1,6 @@
 ﻿using System;
-using KMA.ProgrammingInCSharp2019.Practice7.UserList.Views.Authentication;
+using KMA.ProgrammingInCSharp2019.Practice7.UserList.Views;
 using MainView = KMA.ProgrammingInCSharp2019.Practice7.UserList.Views.MainView;
-using SignUpView = KMA.ProgrammingInCSharp2019.Practice7.UserList.Views.Authentication.SignUpView;
 
 namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Navigation
 {
@@ -16,14 +15,12 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Navigation
         {
             switch (viewType)
             {
-                case ViewType.SignIn:
-                    ViewsDictionary.Add(viewType,new SignInView());
-                    break;
-                case ViewType.SignUp:
-                    ViewsDictionary.Add(viewType, new SignUpView());
-                    break;
+      
                 case ViewType.Main:
                     ViewsDictionary.Add(viewType, new MainView());
+                    break;
+                case ViewType.AddUser:
+                    ViewsDictionary.Add(viewType, new AddUserView());
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(viewType), viewType, null);

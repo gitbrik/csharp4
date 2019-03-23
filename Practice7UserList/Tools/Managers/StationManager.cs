@@ -25,7 +25,7 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers
         
         internal static void CloseApp()
         {
-            MessageBox.Show("ShutDown");
+            DataStorage.SaveChanges();
             StopThreads?.Invoke();
             Environment.Exit(1);
         }

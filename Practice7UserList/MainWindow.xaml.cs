@@ -27,8 +27,9 @@ namespace KMA.ProgrammingInCSharp2019.Practice7.UserList
         private void InitializeApplication()
         {
             StationManager.Initialize(new SerializedDataStorage());
+           // SerializationManager.Initialize(new SerializedDataStorage());
             NavigationManager.Instance.Initialize(new InitializationNavigationModel(this));
-            NavigationManager.Instance.Navigate(ViewType.SignIn);
+            NavigationManager.Instance.Navigate(ViewType.Main);
         }
 
         protected override void OnClosing(CancelEventArgs e)
